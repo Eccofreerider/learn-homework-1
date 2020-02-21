@@ -15,7 +15,7 @@
 import logging
 import settings
 import ephem
-import arrow
+import datetime
 
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
@@ -27,20 +27,22 @@ logging.basicConfig(format='%(name)s - %(levelname)s - %(message)s',
 
 def body(bot, update):
 
+    # bodies_match = [item[-1] for item in ephem._libastro.builtin_planets()]
+    text = update.message.text
+    body_name = text.split()[-1]
+    current_date = datetime.date.today().strftime("%Y/%m/%d")
     try:
-        bodies_list = [x[-1] for x in ephem._libastro.builtin_planets()]
-        p = update.message.text
-        body_name = p.split(' ')[-1]
-        date = str(arrow.now().date()).replace('-','/')
-        calc_data = getattr(ephem, body_name)(date)
+        calc_data = getattr(ephem, body_name)(current_date)
         final = ephem.constellation(calc_data)
-        while True:
-            for x in bodies_list:
-                if x.replace("'","") == body_name:
-                    update.message.reply_text(f"Планета находится в созвездии {final}")
-                    return False
+        update.message.reply_text(f"Планета находится в созвездии {final}")
     except AttributeError:
         update.message.reply_text("Повторите название планеты.")
+        # for planet in bodies_match:
+        #     if planet.replace("'", "") == body_name:
+        #         update.message.reply_text(f"Планета находится в созвездии {final}")
+        #         return False
+
+
 
 
 

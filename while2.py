@@ -27,8 +27,8 @@ def ask_user():
     """
     while True:
         ask_question = input("Задай вопрос: ")
-        for n in phrases:
-            if n == ask_question:
+        for key in phrases:
+            if key == ask_question:
                 print(phrases.get(ask_question))
             else:
                 print("Задайте вопрос из списка.")

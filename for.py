@@ -9,9 +9,10 @@
 * Посчитать и вывести средний балл по всей школе.
 * Посчитать и вывести средний балл по каждому классу.
 """
-grades = [{'school_class': '4a', 'scores': [3,4,4,5,2]},
-          {'school_class': '4b', 'scores': [5,5,4,2,2]},
-          {'school_class': '4c', 'scores': [4,4,5,5,5]}]
+grades = [{'school_class': '4a', 'scores': [3, 4, 4, 5, 2]},
+          {'school_class': '4b', 'scores': [5, 5, 4, 2, 2]},
+          {'school_class': '4c', 'scores': [4, 4, 5, 5, 5]}
+          ]
 
 
 def main():
@@ -20,10 +21,12 @@ def main():
     В ней надо заменить pass на ваш код
     """
     scores_sum = 0
-    for x in grades:
-        x['average_score'] = sum(x['scores'])/len(x['scores'])
-        print('Class ', x['school_class'],': ',x['average_score'])
-        scores_sum += x['average_score']
+    for item in grades:
+        item['average_score'] = sum(item['scores'])/len(item['scores'])
+        print(f"Class {item['school_class']}: {item['average_score']}")
+        scores_sum += item['average_score']
     print("Total average score: ", scores_sum/len(grades))
+
+
 if __name__ == "__main__":
     main()
