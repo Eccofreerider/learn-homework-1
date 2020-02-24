@@ -21,15 +21,14 @@ def ask_user():
     """
     Замените pass на ваш код
     """
-    while True:
-        try:
-            ask_question = input("Задай вопрос: ")
-            for n in phrases:
-                    if n == ask_question:
-                        print(phrases.get(ask_question))
-        except KeyboardInterrupt:
+    try:
+        ask_question = input("Задай вопрос: ")
+        for n in phrases:
+            if n == ask_question:
+                print(phrases.get(ask_question))
+    except KeyboardInterrupt:
             print("Пока!")
-            break
+
 
 
 if __name__ == "__main__":
