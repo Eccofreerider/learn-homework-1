@@ -17,8 +17,8 @@ def get_summ(num_one, num_two):
     Замените pass на ваш код
     """
     try:
-        x = int(num_one) + int(num_two)
-        return x
+        sum = int(num_one) + int(num_two)
+        return sum
     except ValueError:
         return "Приведение типов не сработало!"
     
