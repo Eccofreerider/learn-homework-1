@@ -30,8 +30,8 @@ def body(bot, update):
     text = update.message.text
     body_name = text.split()[-1]
     current_date = datetime.date.today().strftime("%Y/%m/%d")
+    calc_data = getattr(ephem, body_name)(current_date)
     try:
-        calc_data = getattr(ephem, body_name)(current_date)
         final = ephem.constellation(calc_data)
         update.message.reply_text(f"Планета находится в созвездии {final[1]}")
     except AttributeError:

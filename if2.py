@@ -28,10 +28,10 @@ def main(string_one, string_two):
     elif string_one == string_two:
         # print('1')
         return 1
-    elif string_one != string_two and len(string_one) > len(string_two) and not "learn" in string_two.lower():
+    elif string_one != string_two and len(string_one) > len(string_two) and string_two.lower() != "learn":
         # print('2')
         return 2
-    elif string_one != string_two and "learn" in string_two.lower():
+    elif string_one != string_two and string_two.lower() == "learn":
         # print('3')
         return 3
     else:

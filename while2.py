@@ -27,11 +27,10 @@ def ask_user():
     """
     while True:
         ask_question = input("Задай вопрос: ")
-        for key in phrases:
-            if key == ask_question:
-                print(phrases.get(ask_question))
-            else:
-                print("Задайте вопрос из списка.")
+        if ask_question is True:
+            print(phrases.get(ask_question))
+        else:
+            print("Задайте вопрос из списка.")
 
 if __name__ == "__main__":
     ask_user()

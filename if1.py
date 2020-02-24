@@ -21,20 +21,17 @@ def main(age):
     В ней надо заменить pass на ваш код
     """
     if age <= 2:
-        return "Ваш возраст не должен быть меньше 2"
+        occupation = "Ваш возраст не должен быть меньше 2"
     elif 2 < age < 7:
         occupation = 'Вы ходите в детский сад'
-        return occupation
     elif 7 < age < 18:
         occupation = 'Вы учитесь в школе'
-        return occupation
     elif 18 < age < 22:
         occupation = 'Вы учитесь в университете'
-        return occupation
     else:
         occupation = 'Вы работаете'
-        return occupation
+    return occupation
 
 
 if __name__ == "__main__":
-    print(main(getAge))
+    print(main(get_age))
